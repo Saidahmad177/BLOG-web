@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    paddin: 0;
+    box-sizing: border-box;
+
+}
+a{text-decoration: none;}
+li{list-style: none;}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: #52b396;
+}
+.nav-links a{color: white;}
+
+.logo{font-size: 30px;
+    padding: 10px 40px;
+}
+
+.menu{
+    display: flex;
+    gap: 1.5em;
+
+    font-size: 18px;
+
+}
+
+
+.menu li:hover{
+    background-color: #4c9e9e;
+    border-radius: 5px;
+    transition: 1.8s ease;
+}
+
+.menu li{
+    padding: 5px 30px;
+}
+
+#search{
+    border: none;
+    border-radius: 3px;
+    width: auto;
+}
+.button{
+    margin-left: 0px;
+}
+
+
+.container{
+    width: 70%;
+    margin 0 auto;
+}
+
+.basic2{
+    background-image: url("https://www.vmcdn.ca/f/files/shared/site_images/world_news_2017.jpg");
+    background-size: cover;
+    height: 100vh;
+    background-position: cover;
+}
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+.head2{
+    color: #fff;
+}
+.head2 h1{
+    padding: 40px;
+}
+
+.head2 p{
+    padding: 40px;
+    font-family: sans-serif;
+}
+.page1{
+    margin-left: 20px;
+    float: left;
+    width: 60%;
+}
+.page1 p{
+    padding-bottom: 50px;
+}
+
+.second-page{
+    float: left;
+    width: 30%;
+    margin: 0 30px;
+}
+
+.basic-page{
+    margin: 20px 0;
+}
+
+.clr{
+    clear: both;
+}
+footer{
+    background-color: #52B396;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 15px;
+    color: #fff;
+}
