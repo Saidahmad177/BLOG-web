@@ -7,3 +7,4 @@ from .models import Yangilik
 class HomePageView(ListView):
     model = Yangilik
     template_name = 'home.html'
+    context_object_name = 'News_data'

@@ -1,72 +1,17 @@
-{% load static %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>news</title>
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">News</div>
-        <ul class="nav-links">
-            <div class="menu">
-                <input id="search" type="text" class="form-control col-lg-8" placeholder="Search.."><button type="button" class="btn btn-primary btn-lg">button</button>
-                <li><a href=".">Home</a></li>
-                <li><a href=".">about</a></li>
-                <li><a href=".">Services</a></li>
-                <li><a href=".">contacts</a></li>
-            </div>
-        </ul>
-    </nav>
-
-
-    </div>
-    <div class="basic2">
-        <div class="container">
-        <div class="head2">
-            <h1>
-            World news here
-        </h1>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at autem, debitis deserunt dolorem dolores error est et eveniet exercitationem harum hic ipsa ipsam laudantium libero maxime, minima nisi placeat quis quisquam reiciendis reprehenderit similique suscipit temporibus vero voluptas voluptatum.
-        </p>
+    <div class="container">
+        <div class="row">
+            <h2>sdfsdfd</h2>
         </div>
-
-    </div>
-    </div>
-    <div class="basci">
-        <div class="basic-page">
-            <div class="page1">
-                {% for i in object_list %}
-                <h1>{{ i.title }}</h1>
-                <h3>{{ i.author }}</h3>
-                <p>{{ i.text }}</p>
-
-                {% endfor %}
-            </div>
-            <div class="second-page">
-                <div class="page2">
-
-                <h1>page1</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, in quibusdam. Commodi fuga id provident quis repudiandae. Adipisci deserunt odit sunt vero vitae! Alias, aspernatur commodi culpa deserunt dignissimos eligendi enim eveniet excepturi expedita fuga hic laudantium molestiae molestias mollitia non nostrum officia officiis quidem repellendus, rerum similique suscipit vel?</p>
-
-            </div>
-            <div class="page3">
-                <h1>Page3</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid amet atque commodi consectetur cum dolore dolores ea eaque eos ex expedita illo iusto non nostrum obcaecati officia officiis provident quaerat quia quibusdam quo quod ratione rerum sed, sequi similique suscipit voluptate voluptates voluptatibus! Animi autem deserunt illo, magnam non voluptates. Delectus doloremque dolorum in labore numquam quos, rem repellat.</p>
-            </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="clr"></div>
-
-    <div>
-        <footer>
-            <h3>Copyright &copy 2022</h3>
-        </footer>
     </div>
 
 
