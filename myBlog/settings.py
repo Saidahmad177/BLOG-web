@@ -117,10 +117,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+<<<<<<< HEAD
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FilesystemFinder',
+=======
+STATICFILES_DIRS = BASE_DIR / ['static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+>>>>>>> 32a6cd967a855a4f3e32b5a0b3a9aaea20bbb0e0
     'django.contrib.staticfiles.finders.AppDirectoriesFinder'
 ]
 
