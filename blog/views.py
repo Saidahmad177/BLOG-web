@@ -10,5 +10,5 @@ class HomePageView(ListView):
     context_object_name = 'News_data'
 
 
-class AboutPageView(ListView):
-    template_name = 'blog/about.html'
+def about_page(request):
+    return render(request, 'blog/about.html')
