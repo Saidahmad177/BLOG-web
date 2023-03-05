@@ -13,3 +13,7 @@ class HomePageView(ListView):
 # about page
 def about_page(request):
     return render(request, 'blog/about.html')
+
+
+def gallery_page(request):
+    return render(request, 'blog/gallery.html')
