@@ -10,5 +10,6 @@ class HomePageView(ListView):
     context_object_name = 'News_data'
 
 
+# about page
 def about_page(request):
     return render(request, 'blog/about.html')
