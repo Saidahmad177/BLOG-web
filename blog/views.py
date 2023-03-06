@@ -17,3 +17,7 @@ def about_page(request):
 
 def gallery_page(request):
     return render(request, 'blog/gallery.html')
+
+
+def contact_page(request):
+    return render(request, 'blog/contact.html')
