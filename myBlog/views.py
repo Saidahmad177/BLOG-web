@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 class HomeView(View):
     def get(self, request):
-        data = New.objects.all()
+        data = New.published.all()
         context = {
             'data': data,
         }
