@@ -4,11 +4,10 @@ from .models import New
 
 
 # Create your views here.
-class HomePageView(ListView):
-    model = New
-    template_name = 'home.html'
-    context_object_name = 'News_data'
-
+# class HomePageView(ListView):
+#     model = New
+#     template_name = 'home.html'
+#     context_object_name = 'News_data'
 
 # about page
 def about_page(request):
