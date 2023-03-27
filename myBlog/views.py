@@ -10,4 +10,4 @@ class HomeView(View):
             'data': data,
         }
 
-        return render(request, 'home_page/home.html', context)
+        return render(request, 'home.html', context)
