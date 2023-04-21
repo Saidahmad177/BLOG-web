@@ -13,6 +13,17 @@ class HomeView(View):
         return render(request, 'blog/home.html', context)
 
 
+class BlogDetailView(View):
+    def get(self, reqeust, slug):
+        post = New.published.get(slug=slug)
+
+        context = {
+            'post_item':post,
+        }
+
+        return render(reqeust, 'blog/blog_detail.html', context)
+
+
 def about_page(request):
     return render(request, 'blog/about.html')
 
