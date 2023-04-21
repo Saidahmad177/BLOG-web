@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import New
 from django.views.generic import View
 
@@ -14,14 +14,13 @@ class HomeView(View):
 
 
 class BlogDetailView(View):
-    def get(self, reqeust, slug):
+    def get(self, request, slug):
         post = New.published.get(slug=slug)
-
         context = {
             'post_item':post,
         }
 
-        return render(reqeust, 'blog/blog_detail.html', context)
+        return render(request, 'blog/blog_detail.html', context)
 
 
 def about_page(request):

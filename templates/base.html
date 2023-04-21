@@ -11,14 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <title>{% block title %} {% endblock %}</title>
-     <link rel="icon" href="{% static 'images/nature-logo.png' %}">
-<!--
+<link rel="icon" href="{% static 'images/nature-logo.png' %}">
 
-Template 2085 Neuron
-
-http://www.tooplate.com/view/2085-neuron
-
--->
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
 
@@ -54,8 +48,15 @@ http://www.tooplate.com/view/2085-neuron
                     <li><a href="{% url 'blog:about' %}">About</a></li>
                     <li><a href="{% url 'blog:gallery' %}">Gallery</a></li>
                     <li><a href="{% url 'blog:contact' %}">Contact</a></li>
+                   <div class="nav navbar-nav navbar-right" style="margin-top: 10px">
+                     <button class="btn btn-primary" style="margin-left: 10px; ">Login</button>
+                     <button class="btn btn-primary" style="margin-left: 6px; ">Sign Up</button>
+                  </div>
+
                </ul>
+
           </div>
+
 
   </div>
 </div>
