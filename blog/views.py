@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from .models import New
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
+
+from .forms import CommentsForm
+from .models import New, Comments
 from django.views.generic import View
 
 
@@ -21,6 +24,19 @@ class BlogDetailView(View):
         }
 
         return render(request, 'blog/blog_detail.html', context)
+
+    def post(self, request, slug):
+        blog_name = New.published.get(slug=slug)
+        form = CommentsForm(data=request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.blog=blog_name
+            new_comment.user=request.user
+            new_comment.save()
+
+            return redirect(reverse('blog:blog_detail_view', kwargs={'slug': slug}))
+
+        return render(request, 'blog/blog_detail.html')
 
 
 def about_page(request):

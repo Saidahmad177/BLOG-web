@@ -42,7 +42,7 @@
 
                               <div class="blog-post-format">
                                   <span><i class="fa fa-date"></i>{{ post.publish_date|date:'M d, Y' }}</span>
-                                   <span><i class="fa fa-comment-o"></i> 35 Comments</span>
+                                   <span><i class="fa fa-comment-o"></i>{{ post.comments_set.count }} Comments</span>
                               </div>
                               <div class="blog-post-des">
                                    <p>{{ post.body | truncatewords:60 }}</p>

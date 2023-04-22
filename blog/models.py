@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 
+from users.models import CustomUser
+
 
 class PublishManager(models.Manager):
     def get_queryset(self):
@@ -31,3 +33,12 @@ class New(models.Model):
 
     class Meta:
         ordering = ['-publish_date']
+
+class Comments(models.Model):
+    blog = models.ForeignKey(New, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    message = models.TextField()
+    created_time = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.user.username

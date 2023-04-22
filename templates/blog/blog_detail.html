@@ -35,7 +35,7 @@
 
                          <div class="blog-post-format">
                               <span><i class="fa fa-date"></i>{{ post_item.publish_date|date:'M d, Y' }}</span>
-                              <span><a href="#"><i class="fa fa-comment-o"></i> 124 Comments</a></span>
+                              <span><i class="fa fa-comment-o"></i> {{ post_item.comments_set.count }} Comments</span>
                          </div>
 
                          <div class="blog-post-des">
@@ -46,57 +46,38 @@
                              </div>
                          </div>
                          <div class="blog-comment">
-                              <h3>Comments</h3>
-                                   <div class="media">
-                                        <div class="media-object pull-left">
-                                             <img src="images/comment-image1.jpg" class="img-responsive img-circle" alt="Blog Image 11">
-                                        </div>
-                                        <div class="media-body">
-                                             <h3 class="media-heading">David Jones</h3>
-                                             <span>3 days ago</span>
-                                             <p>Aliquam gravida arcu at risus blandit, in interdum metus varius. Cras efficitur, ex sit amet tincidunt rhoncus, dui ex hendrerit risus, ac dapibus ligula mi id leo. In auctor dui justo, ac consequat dui posuere ac.</p>
-                                        </div>
-                                   </div>
-                                   <div class="media">
-                                        <div class="media-object pull-left">
-                                             <img src="images/comment-image2.jpg" class="img-responsive img-circle" alt="Blog Image 22">
-                                        </div>
-                                        <div class="media-body">
-                                             <h3 class="media-heading">Omar Larus</h3>
-                                             <span>5 days ago</span>
-                                             <p>Maecenas ultricies ante dignissim, iaculis ligula sed, gravida ipsum. Pellentesque lobortis velit mi, sed volutpat enim facilisis.</p>
-                                        </div>
-                                   </div>
-                                   <div class="media">
-                                        <div class="media-object pull-left">
-                                             <img src="images/author-image2.jpg" class="img-responsive img-circle" alt="Blog Image 33">
-                                        </div>
-                                        <div class="media-body">
-                                             <h3 class="media-heading">Walker Jen</h3>
-                                             <span>July 27, 2017</span>
-                                             <p>In eu posuere nulla, sit amet semper lectus. Aliquam gravida arcu at risus blandit, in interdum metus varius. Cras efficitur, ex sit amet tincidunt rhoncus, dui ex hendrerit risus, ac dapibus ligula mi id leo.</p>
-                                        </div>
-                                   </div>
-                                   <div class="media">
-                                        <div class="media-object pull-left">
-                                             <img src="images/author-image1.jpg" class="img-responsive img-circle" alt="Blog Image 44">
-                                        </div>
-                                        <div class="media-body">
-                                             <h3 class="media-heading">Jen Lopez</h3>
-                                             <span>July 24, 2017</span>
-                                             <p>In auctor dui justo, ac consequat dui posuere ac. Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur.</p>
-                                        </div>
-                                   </div>
+
+                               {% if post_item.comments_set.all %}
+                                   <h3>Comments</h3>
+                                   {% for comment in post_item.comments_set.all %}
+                                       <div class="media">
+                                            <div class="media-object pull-left">
+                                                 <img src="{{ comment.user.profile_img.url }}" class="img-responsive img-circle" alt="review user image">
+                                            </div>
+                                            <div class="media-body">
+                                                 <h3 class="media-heading">
+                                                     {% if comment.user.first_name and comment.user.last_name %}
+                                                        {{ comment.user.first_name }} {{ comment.user.last_name }}
+                                                     {% else %}
+                                                         {{ comment.user.username }}
+                                                     {% endif %}
+                                                 </h3>
+                                                 <span>{{ comment.created_time|date:'M d, Y' }}</span>
+                                                 <p>{{ comment.message }}</p>
+                                            </div>
+                                       </div>
+                                   {% endfor %}
+                               {% else %}
+                                   <h3>No Comments</h3>
+                               {% endif %}
                          </div>
 
                          <div class="blog-comment-form">
                               <h3>Leave a Comment</h3>
-                                   <form action="#" method="post">
-                           	 	 	 	<input type="text" class="form-control" placeholder="Name" name="name" required>
-                                        <input type="email" class="form-control" placeholder="Email" name="email" required>
-                                        <textarea name="message" rows="5" class="form-control" id="message" placeholder="Message" message="message" required="required"></textarea>
+                                   <form method="post">{% csrf_token %}
+                                        <textarea name="message" rows="5" class="form-control" placeholder="Message" message="message" required="required"></textarea>
                                         <div class="col-md-3 col-sm-4">
-                                             <input name="submit" type="submit" class="form-control" id="submit" value="Post Your Comment">
+                                             <input type="submit" class="form-control" value="Post Your Comment">
                                         </div>
                                    </form>
                          </div>
