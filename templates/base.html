@@ -49,8 +49,26 @@
                     <li><a href="{% url 'blog:gallery' %}">Gallery</a></li>
                     <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                    <div class="nav navbar-nav navbar-right" style="margin-top: 10px">
-                     <button class="btn btn-primary" style="margin-left: 10px; ">Login</button>
-                     <button class="btn btn-primary" style="margin-left: 6px; ">Sign Up</button>
+                       {% if request.user.is_authenticated %}
+                          <div class="dropdown" style="margin-bottom: 20px !important;">
+                              <h4 class="dropdown-toggle dropdown-btn" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  {{ request.user.username }}
+                                <span class="caret"></span>
+                              </h4>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Profile</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a class="logout-anchor" href="#">Logout</a></li>
+                              </ul>
+                          </div>
+                       {% else %}
+                           <a href="{% url 'users:login' %}">
+                               <button class="btn btn-primary" style="margin-left: 10px; ">Login</button>
+                           </a>
+                           <a href="{% url 'users:register' %}">
+                               <button class="btn btn-primary" style="margin-left: 6px; ">Sign Up</button>
+                           </a>
+                       {% endif %}
                   </div>
 
                </ul>
@@ -60,6 +78,18 @@
 
   </div>
 </div>
+
+
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            <div class="container">
+                {{ message }}</div>
+            </div>
+    {% endfor %}
+
+{% endif %}
+
 
 
 {% block content %}

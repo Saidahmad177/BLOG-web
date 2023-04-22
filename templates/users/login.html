@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="login-page">
+            <h2>Login</h2>
+            <form method="post" action="">{% csrf_token %}
+                <input type="text" class="form-control" placeholder="Username" name="username">
+                <input type="text" class="form-control" placeholder="Password" name="password">
+                <input type="submit" class="btn btn-primary" value="Login">
+
+            </form>
+            <h5>Don't have an account? <a href="{% url 'users:register' %}">Register here</a></h5>
+        </div>
+    </div>
+
+{% endblock %}
