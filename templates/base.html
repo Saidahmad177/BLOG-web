@@ -40,13 +40,12 @@
                     <span class="icon icon-bar"></span>
                     <span class="icon icon-bar"></span>
                </button>
-               <a href="{% url 'blog:home' %}" class="navbar-brand">Neuron</a>
+               <a href="{% url 'blog:home' %}" class="navbar-brand">Nature</a>
           </div>
           <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'blog:home' %}">Home</a></li>
                     <li><a href="{% url 'blog:about' %}">About</a></li>
-                    <li><a href="{% url 'blog:gallery' %}">Gallery</a></li>
                     <li><a href="{% url 'blog:contact' %}">Contact</a></li>
                    <div class="nav navbar-nav navbar-right" style="margin-top: 10px">
                        {% if request.user.is_authenticated %}
@@ -104,11 +103,8 @@
           <div class="row">
 
                <div class="col-md-5 col-md-offset-1 col-sm-6">
-                    <h3>Neuron Studio</h3>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <div class="footer-copyright">
-                         <p>Copyright &copy; 2017 Your Company - Design: Tooplate</p>
-                    </div>
+                    <h3>Nature</h3>
+                    <p>The Nature Conservancy is a nonprofit, tax-exempt charitable organization (tax identification number 53-0242652) under Section 501(c)(3) of the U.S. Internal Revenue Code. Donations are tax-deductible as allowed by law. Global sites represent either regional branches of The Nature Conservancy or local affiliates of The Nature Conservancy that are separate entities.</p>
                </div>
 
                <div class="col-md-4 col-md-offset-1 col-sm-6">
@@ -124,11 +120,10 @@
 
                <div class="col-md-12 col-sm-12">
                     <ul class="social-icon">
-                         <li><a href="#" class="fa fa-facebook"></a></li>
-                         <li><a href="#" class="fa fa-twitter"></a></li>
-                         <li><a href="#" class="fa fa-google-plus"></a></li>
-                         <li><a href="#" class="fa fa-dribbble"></a></li>
-                         <li><a href="#" class="fa fa-linkedin"></a></li>
+                         <li><a href="https://facebook.com" class="fa fa-facebook"></a></li>
+                         <li><a href="https://twitter.com" class="fa fa-twitter"></a></li>
+                         <li><a href="https://instagram.com" class="fa fa-instagram"></a></li>
+                         <li><a href="https://linkedin.com" class="fa fa-linkedin"></a></li>
                     </ul>
                </div>
 

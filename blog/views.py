@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 
@@ -10,8 +11,14 @@ from django.views.generic import View
 class HomeView(View):
     def get(self, request):
         data = New.published.all()
+
+        page_size = request.GET.get('page_size', 6)
+        paginator = Paginator(data, page_size)
+        page_num = request.GET.get('page', 1)
+        pagination = paginator.get_page(page_num)
+
         context = {
-            'data': data,
+            'data': pagination,
         }
 
         return render(request, 'blog/home.html', context)
@@ -42,15 +49,6 @@ class BlogDetailView(View):
 
 def about_page(request):
     return render(request, 'blog/about.html')
-
-
-class GalleryView(View):
-    def get(self, request):
-        data = New.published.all().order_by('-id')[:6]
-
-
-        return render(request, 'blog/gallery.html', {'data': data})
-
 
 
 class ContactView(View):
