@@ -42,3 +42,13 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=200)
+    username = models.CharField(max_length=200)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.username

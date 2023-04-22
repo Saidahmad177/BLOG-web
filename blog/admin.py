@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import New, Comments
+from .models import New, Comments, Contact
 
 
 @admin.register(New)
@@ -11,3 +11,4 @@ class NewsModel(admin.ModelAdmin):
 
 
 admin.site.register(Comments)
+admin.site.register(Contact)
