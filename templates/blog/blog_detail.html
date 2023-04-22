@@ -68,19 +68,25 @@
                                        </div>
                                    {% endfor %}
                                {% else %}
-                                   <h3>No Comments</h3>
+                                   <h3>No Comments.</h3>
                                {% endif %}
                          </div>
 
-                         <div class="blog-comment-form">
-                              <h3>Leave a Comment</h3>
+                         {% if request.user.is_authenticated %}
+                             <div class="blog-comment-form">
+                                  <h3>Leave a Comment</h3>
                                    <form method="post">{% csrf_token %}
                                         <textarea name="message" rows="5" class="form-control" placeholder="Message" message="message" required="required"></textarea>
                                         <div class="col-md-3 col-sm-4">
                                              <input type="submit" class="form-control" value="Post Your Comment">
                                         </div>
                                    </form>
-                         </div>
+                             </div>
+                         {% else %}
+                             <h4>You must be logged in to post a comment</h4>
+                             <h4>Click <a href="{% url 'users:login' %}" class="text-primary"><b>here</b></a> to login</h4>
+
+                         {% endif %}
                     </div>
           </div>
      </div>

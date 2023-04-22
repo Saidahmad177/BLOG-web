@@ -29,15 +29,13 @@
                <div class="col-md-offset-1 col-md-10 col-sm-12">
                     {% for post in data %}
                          <div class="blog-post-thumb">
-
-                              <div class="blog-post-title">
-                                   <h3><a href="{% url 'blog:blog_detail_view' post.slug %}">{{ post.title }}</a></h3>
-                              </div>
-
                               <div class="blog-post-image">
                                    <a href="{% url 'blog:blog_detail_view' post.slug %}">
                                         <img src="{{ post.image.url }}" class="img-responsive" alt="Blog Image">
                                    </a>
+                              </div>
+                             <div class="blog-post-title">
+                                   <h3><a href="{% url 'blog:blog_detail_view' post.slug %}">{{ post.title }}</a></h3>
                               </div>
 
                               <div class="blog-post-format">
