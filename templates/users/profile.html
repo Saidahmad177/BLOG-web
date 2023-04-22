@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ request.user.username }} Profile {% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            <div class="container">
+                {{ form.username.errors }}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <h2>{{ request.user.username }} Profile</h2>
+        <div class="row">
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="col-md-1 login-page">
+                    <label>First name</label>
+                    <input class="form-control" type="text" placeholder="None" value="{{ user.first_name }}" name="first_name">
+
+                    <label>Last name</label>
+                    <input class="form-control" type="text" placeholder="None" value="{{ user.last_name }}"name="last_name">
+
+                    <label>Username</label>
+                    <input class="form-control" type="text" placeholder="None" value="{{ user.username }}" name="username">
+
+                    <label>Email</label>
+                    <input class="form-control" type="text" placeholder="None" value="{{ user.email }}" name="email">
+                </div>
+                <div class="col-sm-4 profile-image">
+                    <img class="thumbnail" src="{{ user.profile_img.url }}" width="210" height="210" alt="">
+                    <input class="form-control" type="file" placeholder="None" value="{{ user.profile_img.url }}" name="profile_img">
+                    <input class="btn btn-primary save-btn" type="submit" value="Save changes">
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

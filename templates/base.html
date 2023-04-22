@@ -56,9 +56,9 @@
                                 <span class="caret"></span>
                               </h4>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Profile</a></li>
+                                <li><a href="{% url 'users:profile' %}">Profile</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a class="logout-anchor" href="#">Logout</a></li>
+                                <li><a class="logout-anchor" href="{% url 'users:logout' %}">Logout</a></li>
                               </ul>
                           </div>
                        {% else %}
@@ -84,8 +84,9 @@
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }}" role="alert">
             <div class="container">
-                {{ message }}</div>
+                {{ message }}
             </div>
+        </div>
     {% endfor %}
 
 {% endif %}

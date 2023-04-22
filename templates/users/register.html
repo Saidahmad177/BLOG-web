@@ -1,2 +1,32 @@
 {% extends 'base.html' %}
-{% block title %} {% endblock %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            <div class="container">
+                {{ form.username.errors }}
+                {{ form.password.errors }}
+                {{ form.email.errors }}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container">
+        <div class="login-page">
+            <h2>Register</h2>
+            <form method="post" action="">{% csrf_token %}
+                <input type="text" class="form-control" placeholder="First name" name="first_name" required="required">
+                <input type="text" class="form-control" placeholder="Last name" name="last_name" required="required">
+                <input type="text" class="form-control" placeholder="Username" name="username" required="required">
+                <input type="email" class="form-control" placeholder="Email" name="email" required="required">
+                <input type="password" class="form-control" placeholder="Password" name="password" required="required">
+                <input type="submit" class="btn btn-primary" value="Login">
+
+            </form>
+            <h5>Already have an account? <a href="{% url 'users:login' %}"> Log in</a></h5>
+        </div>
+    </div>
+
+{% endblock %}

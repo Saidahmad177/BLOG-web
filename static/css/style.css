@@ -788,3 +788,6 @@ footer .footer-copyright {
   cursor: pointer;
 }
 .logout-anchor:hover{color: red !important;}
+
+.profile-image{margin-left: 60px}
+.save-btn{margin-top: 27px}
